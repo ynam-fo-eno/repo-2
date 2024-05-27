@@ -21,7 +21,6 @@ class CustomTextField extends StatelessWidget{
       this.finishIcon,
       this.obscured =false,
       this.niPassword=false,
-      
     }
     );
   @override
@@ -35,7 +34,9 @@ class CustomTextField extends StatelessWidget{
         prefixIcon:Icon(startIcon),
         suffixIcon: niPassword?  const Icon(Icons.visibility)
         :
-        const SizedBox(height:10,width:10),  
+        const SizedBox(
+          height:10,
+          width:10),  
         label:  Text(hintMessage!),
         //hintText: hintMessage,
         enabledBorder: OutlineInputBorder(
@@ -43,7 +44,6 @@ class CustomTextField extends StatelessWidget{
         borderRadius: BorderRadius.circular(10),
        ),
     )
-  
-      );
+  );
   } 
 }

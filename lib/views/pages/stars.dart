@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_application_0/configs/constants.dart';
 import 'package:flutter_application_0/controllers/astre_controller.dart';
 import 'package:flutter_application_0/models/astre_model.dart';
+import 'package:flutter_application_0/views/widgets/customizedtext.dart';
 //import 'package:flutter_application_0/views/widgets/customizedtext.dart';
 import 'package:get/get.dart';
 import 'package:http/http.dart' as http;
@@ -18,74 +19,91 @@ class Stars extends StatelessWidget {
   Widget build(BuildContext context) {
     starDisplay();
     return Obx(
-      () => ListView.builder(
-          shrinkWrap: true,
-          itemCount: ((starController.starList.length) + 0),
-          itemBuilder: (context, index) {
-            return Center(
-              child: SingleChildScrollView(
-                child: SizedBox(
-                  height: 150,
-                  child: Row(
-                    //mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.end,
-                    children: [
-                      Image.network(
-                        "http://localhost/php-attempt1/star_images/${starController.starList[index].star_image}",
-                        height: 100,
-                        width: 100,
-                      ),
-                      Expanded(
-                        child: Center(
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Text(
-                                "Name:\n${starController.starList[index].star_name}",
-                                style: TextStyle(
-                                  fontSize: 13,
-                                  color: Colors.purple,
-                                  backgroundColor: textingGray,
-                                ),
-                                maxLines: 2,
-                              ),
-                              //Spacer(),
-                              Text(
-                                starController.starList[index].continents,
-                                style: TextStyle(
-                                  fontSize: 11,
-                                  color: textingWhite,
-                                  backgroundColor: textingGray,
-                                ),
-                                maxLines: 5,
-                              ),
-                              //Spacer(),
-                              Text(
-                                "Distance from Earth=\n${starController.starList[index].dist_earth}\nlight years",
-                                style: TextStyle(
-                                  fontSize: 13,
-                                  color: Colors.purple,
-                                  backgroundColor: textingGray,
-                                ),
-                                maxLines: 3,
-                              ),
-                            ],
+      () => Scaffold(
+          appBar: AppBar(
+          title: Center(
+            child: const CustomizedTextWidget(
+                label: "ST4&&Y",
+                labelsColor: defaultBlack,
+                fontWeight: FontWeight.bold,
+                fontSize: 20),
+          ),
+          backgroundColor: paleGreen,
+          foregroundColor: textingWhite,
+        ),
+        body: Container(
+          decoration: BoxDecoration(
+            image: DecorationImage(
+              image: AssetImage('assets/images/starbackground.jpg'),
+              fit: BoxFit.cover,
+            ),
+          ),
+          child: ListView.builder(
+              shrinkWrap: true,
+              itemCount: ((starController.starList.length) + 0),
+              itemBuilder: (context, index) {
+                return Center(
+                  child: SingleChildScrollView(
+                    child: SizedBox(
+                      height: 150,
+                      child: Row(
+                        //mainAxisAlignment: MainAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.end,
+                        children: [
+                          Image.network(
+                            "http://localhost/php-attempt1/star_images/${starController.starList[index].star_image}",
+                            height: 100,
+                            width: 100,
                           ),
-                        ),
+                          Expanded(
+                            child: Center(
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Text(
+                                    "Name:\n${starController.starList[index].star_name}",
+                                    style: TextStyle(
+                                      fontSize: 11,
+                                      color: Colors.purple,
+                                      backgroundColor: textingGray,
+                                    ),
+                                    maxLines: 2,
+                                  ),
+                                  //Spacer(),
+                                  Text(
+                                    starController.starList[index].continents,
+                                    style: TextStyle(
+                                      fontSize: 11,
+                                      color: textingWhite,
+                                      backgroundColor: textingGray,
+                                    ),
+                                    maxLines: 5,
+                                  ),
+                                  //Spacer(),
+                                  Text(
+                                    "Distance from Earth=\n${starController.starList[index].dist_earth}\nlight years",
+                                    style: TextStyle(
+                                      fontSize: 11,
+                                      color: Colors.purple,
+                                      backgroundColor: textingGray,
+                                    ),
+                                    maxLines: 3,
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ),
+                          SizedBox(height: 5),
+                          
+                        ],
                       ),
-                      SizedBox(height: 5),
-                      MaterialButton(
-                        onPressed: () {},
-                        child: Text("Learn More"),
-                        color: Colors.purple,
-                      ),
-                    ],
+                    ),
                   ),
-                ),
-              ),
-            );
-          }),
+                );
+              }),
+        ),
+      ),
     );
   }
 

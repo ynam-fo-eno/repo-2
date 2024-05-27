@@ -6,6 +6,7 @@ import 'package:flutter_application_0/controllers/order_controller.dart';
 import 'package:flutter_application_0/controllers/produit_controller.dart';
 //import 'package:flutter_application_0/models/goods_model.dart';
 import 'package:flutter_application_0/models/order_model.dart';
+import 'package:flutter_application_0/views/widgets/customizedtext.dart';
 //import 'package:flutter_application_0/views/widgets/customizedtext.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:get/get.dart';
@@ -23,85 +24,106 @@ class OrderTracker extends StatelessWidget {
   Widget build(BuildContext context) {
     orderDisplay();
     return Obx(
-      () => ListView.builder(
-          shrinkWrap: true,
-          itemCount: ((orderController.orderList.length) + 0),
-          itemBuilder: (context, index) {
-            return Center(
-              child: SingleChildScrollView(
-                child: SizedBox(
-                  height: 150,
-                  child: Row(
-                    //mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.end,
-                    children: [
-                      Image.network(
-                        "http://localhost/php-attempt1/user_images/${orderController.orderList[index].photo}",
-                        height: 100,
-                        width: 100,
-                      ),
-
-                      //Image.network("${index + 1}. ${studentController.studentList[index].image}"),
-                      Expanded(
-                        child: Center(
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Text(
-                                "${orderController.orderList[index].name_1} ${orderController.orderList[index].name_2}",
-                                style: TextStyle(
-                                  fontSize: 18,
-                                  color: Colors.purple,
-                                  backgroundColor: textingGray,
-                                ),
-                              ),
-                              //Spacer(),
-                              Text(
-                                orderController.orderList[index].p_name,
-                                style: TextStyle(
-                                  fontSize: 16,
-                                  color: textingWhite,
-                                  backgroundColor: textingGray,
-                                ),
-                                maxLines: 3,
-                              ),
-                              Text(
-                                "ORDER ID: ${orderController.orderList[index].order_id}",
-                                style: TextStyle(
-                                  fontSize: 18,
-                                  color: Colors.purple,
-                                  backgroundColor: textingGray,
-                                ),
-                              ),
-                              //Spacer(),
-                              Text(
-                                orderController.orderList[index].amount,
-                                style: TextStyle(
-                                  fontSize: 18,
-                                  color: Colors.purple,
-                                  backgroundColor: textingGray,
-                                ),
-                              ),
-                            ],
+      () => Scaffold(
+        appBar: AppBar(
+          title: Center(
+            child: const CustomizedTextWidget(
+                label: "ST4&&Y",
+                labelsColor: defaultBlack,
+                fontWeight: FontWeight.bold,
+                fontSize: 20),
+          ),
+          backgroundColor: paleGreen,
+          foregroundColor: textingWhite,
+        ),
+        body: Container(
+           decoration: BoxDecoration(
+            image: DecorationImage(
+              image: AssetImage('assets/images/starbackground.jpg'),
+              fit: BoxFit.cover,
+            ),
+          ),
+          child: ListView.builder(
+              shrinkWrap: true,
+              itemCount: ((orderController.orderList.length) + 0),
+              itemBuilder: (context, index) {
+                return Center(
+                  child: SingleChildScrollView(
+                    child: SizedBox(
+                      height: 150,
+                      child: Row(
+                        //mainAxisAlignment: MainAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.end,
+                        children: [
+                          Image.network(
+                            "http://localhost/php-attempt1/user_images/${orderController.orderList[index].photo}",
+                            height: 100,
+                            width: 100,
                           ),
-                        ),
+          
+                          //Image.network("${index + 1}. ${studentController.studentList[index].image}"),
+                          Expanded(
+                            child: Center(
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Text(
+                                    "${orderController.orderList[index].name_1} ${orderController.orderList[index].name_2}",
+                                    style: TextStyle(
+                                      fontSize: 18,
+                                      color: Colors.purple,
+                                      backgroundColor: textingGray,
+                                    ),
+                                  ),
+                                  //Spacer(),
+                                  Text(
+                                    orderController.orderList[index].p_name,
+                                    style: TextStyle(
+                                      fontSize: 16,
+                                      color: textingWhite,
+                                      backgroundColor: textingGray,
+                                    ),
+                                    maxLines: 3,
+                                  ),
+                                  Text(
+                                    "ORDER ID: ${orderController.orderList[index].order_id}",
+                                    style: TextStyle(
+                                      fontSize: 18,
+                                      color: Colors.purple,
+                                      backgroundColor: textingGray,
+                                    ),
+                                  ),
+                                  //Spacer(),
+                                  Text(
+                                    orderController.orderList[index].amount,
+                                    style: TextStyle(
+                                      fontSize: 18,
+                                      color: Colors.purple,
+                                      backgroundColor: textingGray,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ),
+                          MaterialButton(
+                            onPressed: () {
+                              omitOrder(
+                                orderController.orderList[index].order_id,
+                              );
+                            },
+                            child: Text("Cancel Order"),
+                            color: Colors.purple,
+                          ),
+                        ],
                       ),
-                      MaterialButton(
-                        onPressed: () {
-                          omitOrder(
-                            orderController.orderList[index].order_id,
-                          );
-                        },
-                        child: Text("Cancel Order"),
-                        color: Colors.purple,
-                      ),
-                    ],
+                    ),
                   ),
-                ),
-              ),
-            );
-          }),
+                );
+              }),
+        ),
+      ),
     );
   }
 

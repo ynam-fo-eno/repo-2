@@ -1,4 +1,4 @@
-// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables, avoid_print
+// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables, avoid_print, non_constant_identifier_names
 
 import 'package:flutter/material.dart';
 import 'package:flutter_application_0/configs/constants.dart';
@@ -43,17 +43,22 @@ class Login extends StatelessWidget {
           var name_1= userData[0]["name_1"];
           var name_2= userData[0]["name_2"];
           var role= userData[0]["role"];
-
+          var photo= userData[0]["photo"];
+          var phone_no= userData[0]["phone_no"];
 
           print(email);
           print(name_1);
           print(name_2);
           print(role);
-
+          print(photo);
+          print(phone_no);
 
           loginController.updateEmailAddress(email);
           loginController.updateFullName(name_1, name_2);
           loginController.updateRole(role);
+          loginController.updatePhoto(photo);
+          loginController.updatePhoneNumber(phone_no);
+
           Get.toNamed("/home");
 
         } 
@@ -94,102 +99,91 @@ class Login extends StatelessWidget {
             backgroundColor: paleGreen,
             foregroundColor: textingWhite,
           ),
-          drawer: NavigationDrawer(
-            children: [
-              ListTile(
-                  leading: Icon(Icons.home),
-                  title: Text("Home"),
-                  onTap: () {
-                    Get.toNamed("/home");
-                  }),
-              ListTile(
-                  leading: Icon(Icons.app_registration),
-                  title: Text("Register"),
-                  onTap: () {
-                    Get.toNamed("/registration_file");
-                  }),
-              ListTile(
-                  leading: Icon(Icons.dashboard_customize_rounded),
-                  title: Text("Dashboard"),
-                  onTap: () {
-                    Get.toNamed("/dashboard");
-                  }),
-              ListTile(
-                  leading: Icon(Icons.calculate),
-                  title: Text("Basic Calculator"),
-                  onTap: () {
-                    Get.toNamed("/");
-                  }),
-              ListTile(
-                  leading: Icon(Icons.person),
-                  title: Text("Members' List"),
-                  onTap: () {
-                    Get.toNamed("/memberslist");
-                  }),
-            ],
-          ),
-          body: SingleChildScrollView(
-            child: Center(
-              child: Padding(
-                padding: EdgeInsets.fromLTRB(20, 50, 20, 40),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  children: [
-                    Image.asset("assets/images/bluestar.jpg",
-                        height: 200, width: 200),
-                    CustomizedTextWidget(
-                      label: "Login Screen",
-                      fontWeight: FontWeight.bold,
-                      fontSize: 30,
-                    ),
-                    SizedBox(
-                      height: 10,
-                    ),
-                    CustomizedTextWidget(
-                      label: "Username/Email",
-                    ),
-                    CustomTextField(
-                      controller: usernameController,
-                      hintMessage: "Name?Or email?",
-                      startIcon: Icons.people,
-                    ),
-                    CustomizedTextWidget(label: "Password"),
-                    SizedBox(
-                      height: 10,
-                    ),
-                    CustomTextField(
-                      controller: passwordController,
-                      hintMessage: "Password",
-                      obscured: true,
-                      niPassword: true,
-                    ),
-                    SizedBox(
-                      height: 20,
-                    ),
-                    CustomButton(
-                      buttonText: "Login",
-                      unAction: () =>login(),
-                    ),
-                    SizedBox(
-                      height: 20,
-                    ),
-                    CustomButton(
-                      buttonText: "Get account if none",
-                      unAction: () => Get.toNamed("/registration_file"),
-                    ),
-                    SizedBox(
-                      height: 20,
-                    ),
-                    CustomButton(
-                      buttonText: "Check out my calc,man!",
-                      unAction: () => Get.toNamed("/"),
-                    ),
-                ],
+          body: Container(
+             decoration: BoxDecoration(
+              image: DecorationImage(
+                image: AssetImage('assets/images/starbackground.jpg'),
+                fit: BoxFit.cover,
               ),
             ),
-          ),
-        )
+            child: SingleChildScrollView(
+              child: Center(
+                child: Padding(
+                  padding: EdgeInsets.fromLTRB(20, 50, 20, 40),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      Image.asset("assets/images/bluestar.jpg",
+                          height: 200, width: 200),
+                      CustomizedTextWidget(
+                        label: "Login Screen",
+                        fontWeight: FontWeight.bold,
+                        fontSize: 30,
+                      ),
+                      SizedBox(
+                        height: 10,
+                      ),
+                      CustomizedTextWidget(
+                        label: "Email",
+                      ),
+                      Container(
+                        decoration: BoxDecoration(
+                          color: textingWhite,
+                          borderRadius: BorderRadius.circular(10),
+                          border: Border.all(
+                            color: Colors.blueGrey,
+                          ),
+                        ),
+                        child: CustomTextField(
+                          controller: usernameController,
+                          hintMessage: "Email?",
+                          startIcon: Icons.people,
+                        ),
+                      ),
+                      CustomizedTextWidget(label: "Password"),
+                      SizedBox(
+                        height: 10,
+                      ),
+                      Container(
+                        decoration: BoxDecoration(
+                          color: textingWhite,
+                          borderRadius: BorderRadius.circular(10),
+                          border: Border.all(
+                            color: Colors.blueGrey,
+                          ),
+                        ),
+                        child: CustomTextField(
+                          controller: passwordController,
+                          hintMessage: "Password",
+                          obscured: true,
+                          niPassword: true,
+                        ),
+                      ),
+                      SizedBox(
+                        height: 20,
+                      ),
+                      CustomButton(
+                        buttonText: "Login",
+                        unAction: () =>login(),
+                      ),
+                      SizedBox(
+                        height: 20,
+                      ),
+                      CustomButton(
+                        buttonText: "Get account if none",
+                        unAction: () => Get.toNamed("/registration_file"),
+                      ),
+                      SizedBox(
+                        height: 20,
+                      ),
+                     
+                  ],
+                ),
+              ),
+            ),
+                    ),
+          )
       ),
     );
   }

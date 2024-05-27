@@ -54,7 +54,7 @@ class RegistrationFile extends StatelessWidget {
               backgroundColor: Colors.red,
               textColor: Colors.white,
               fontSize: 16.0);
-              Get.toNamed("/successful_login");
+              Get.toNamed("/login");
         }
       }
       
@@ -84,7 +84,7 @@ class RegistrationFile extends StatelessWidget {
       appBar: AppBar(
         title: Center(
           child: const CustomizedTextWidget(
-              label: "Constellations\"App\"#1",
+              label: "ST4&&Y\"App\"",
               labelsColor: defaultBlack,
               fontWeight: FontWeight.bold,
               fontSize: 30),
@@ -92,85 +92,165 @@ class RegistrationFile extends StatelessWidget {
         backgroundColor: paleGreen,
         foregroundColor: textingWhite,
       ),
-      body: SingleChildScrollView(
-          child: Center(
-        child: Padding(
-          padding: EdgeInsets.fromLTRB(20, 50, 20, 40),
-          child: Column(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Image.asset("assets/images/redstar.jpg",
-                    height: 200, width: 200),
-                CustomizedTextWidget(
-                  label: "New Account Registration Screen",
-                  fontWeight: FontWeight.bold,
-                  fontSize: 30,
-                ),
-                CustomTextField(
-                  controller: firstNameController,
-                  hintMessage: "First Name?",
-                  startIcon: Icons.people,
-                ),
-                SizedBox(
-                  height: 10,
-                ),
-                CustomTextField(
-                  controller: secondNameController,
-                  hintMessage: "Second Name?",
-                  startIcon: Icons.people,
-                ),
-                SizedBox(
-                  height: 10,
-                ),
-                CustomTextField(
-                  controller: phoneNumberController,
-                  hintMessage: "Phone number (10 digits)",
-                  startIcon: Icons.phone,
-                ),
-                SizedBox(
-                  height: 10,
-                ),
-                CustomTextField(
-                  controller: emailController,
-                  hintMessage: "Email Address",
-                  startIcon: Icons.mail_outline,
-                ),
-                SizedBox(
-                  height: 10,
-                ),
-                CustomTextField(
-                  controller: passwordController,
-                  hintMessage: "Enter password",
-                  obscured: true,
-                  niPassword: true,
-                ),
-                SizedBox(
-                  height: 10,
-                ),
-                CustomTextField(
-                  controller: confirmedPasswordController,
-                  hintMessage: "Confirm password above",
-                  obscured: true,
-                  niPassword: true,
-                ),
-                SizedBox(
-                  height: 10,
-                ),
-                CustomButton(
-                  buttonText: "Save details",
-                  unAction: () => register(),
-                ),
-                SizedBox(
-                  height: 10,
-                ),
-                CustomButton(
-                  buttonText: "Login if account present",
-                  unAction: () => Get.toNamed("/login"),
-                ),
-              ]),
+      body: Container(
+        decoration: BoxDecoration(
+          image: DecorationImage(
+            image: AssetImage('assets/images/starbackground.jpg'),
+            fit: BoxFit.cover,
+          ),
         ),
-      )),
+        child: SingleChildScrollView(
+            child: Center(
+          child: Padding(
+            padding: EdgeInsets.fromLTRB(20, 50, 20, 40),
+            child: Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Image.asset("assets/images/redstar.jpg",
+                      height: 200, width: 200),
+                  CustomizedTextWidget(
+                    label: "New Account Registration Screen",
+                    fontWeight: FontWeight.bold,
+                    fontSize: 30,
+                  ),
+                  Container(
+                    decoration: BoxDecoration(
+                      color: textingWhite,
+                      borderRadius: BorderRadius.circular(10),
+                      border: Border.all(
+                        color: Colors.blueGrey,
+                      ),
+                    ),
+                    child: CustomTextField(
+                      controller: firstNameController,
+                      hintMessage: "First Name?",
+                      startIcon: Icons.people,
+                    ),
+                  ),
+                  SizedBox(
+                    height: 10,
+                  ),
+                  Container(
+                    decoration: BoxDecoration(
+                      color: textingWhite,
+                      borderRadius: BorderRadius.circular(10),
+                      border: Border.all(
+                        color: Colors.blueGrey,
+                      ),
+                    ),
+                    child: Container(
+                      decoration: BoxDecoration(
+                        color: textingWhite,
+                        borderRadius: BorderRadius.circular(10),
+                        border: Border.all(
+                          color: Colors.blueGrey,
+                        ),
+                      ),
+                      child: Container(
+                        decoration: BoxDecoration(
+                          color: textingWhite,
+                          borderRadius: BorderRadius.circular(10),
+                          border: Border.all(
+                            color: Colors.blueGrey,
+                          ),
+                        ),
+                        child: CustomTextField(
+                          controller: secondNameController,
+                          hintMessage: "Second Name?",
+                          startIcon: Icons.people,
+                        ),
+                      ),
+                    ),
+                  ),
+                  SizedBox(
+                    height: 10,
+                  ),
+                  Container(
+                    decoration: BoxDecoration(
+                      color: textingWhite,
+                      borderRadius: BorderRadius.circular(10),
+                      border: Border.all(
+                        color: Colors.blueGrey,
+                      ),
+                    ),
+                    child: CustomTextField(
+                      controller: phoneNumberController,
+                      hintMessage: "Phone number (10 digits)",
+                      startIcon: Icons.phone,
+                    ),
+                  ),
+                  SizedBox(
+                    height: 10,
+                  ),
+                  Container(
+                    decoration: BoxDecoration(
+                      color: textingWhite,
+                      borderRadius: BorderRadius.circular(10),
+                      border: Border.all(
+                        color: Colors.blueGrey,
+                      ),
+                    ),
+                    child: CustomTextField(
+                      controller: emailController,
+                      hintMessage: "Email Address",
+                      startIcon: Icons.mail_outline,
+                    ),
+                  ),
+                  SizedBox(
+                    height: 10,
+                  ),
+                  Container(
+                    decoration: BoxDecoration(
+                      color: textingWhite,
+                      borderRadius: BorderRadius.circular(10),
+                      border: Border.all(
+                        color: Colors.blueGrey,
+                      ),
+                    ),
+                    child: CustomTextField(
+                      controller: passwordController,
+                      hintMessage: "Enter password",
+                      obscured: true,
+                      niPassword: true,
+                    ),
+                  ),
+                  SizedBox(
+                    height: 10,
+                  ),
+                  Container(
+                    decoration: BoxDecoration(
+                      color: textingWhite,
+                      borderRadius: BorderRadius.circular(10),
+                      border: Border.all(
+                        color: Colors.blueGrey,
+                      ),
+                    ),
+                    child: CustomTextField(
+                      controller: confirmedPasswordController,
+                      hintMessage: "Confirm password above",
+                      obscured: true,
+                      niPassword: true,
+                    ),
+                  ),
+                  SizedBox(
+                    height: 10,
+                  ),
+                  CustomButton(
+                    buttonText: "Save details",
+                    unAction: () => register(),
+                  ),
+                  SizedBox(
+                    height: 10,
+                  ),
+                  CustomButton(
+                    buttonText: "Login if account present",
+                    unAction: () => Get.toNamed("/login"),
+                  ),
+                ]),
+          ),
+        )),
+      ),
     );
   }
 }

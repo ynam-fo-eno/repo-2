@@ -4,6 +4,7 @@ import 'package:flutter_application_0/configs/constants.dart';
 import 'package:flutter_application_0/controllers/logincontroller.dart';
 import 'package:flutter_application_0/controllers/produit_controller.dart';
 import 'package:flutter_application_0/models/goods_model.dart';
+import 'package:flutter_application_0/views/widgets/customizedtext.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 //import 'package:flutter_application_0/views/widgets/customizedtext.dart';
 import 'package:get/get.dart';
@@ -25,77 +26,98 @@ class Produits extends StatelessWidget {
   Widget build(BuildContext context) {
     productDisplay();
     return Obx(
-      () => ListView.builder(
-          shrinkWrap: true,
-          itemCount: ((productController.productList.length) + 0),
-          itemBuilder: (context, index) {
-            return Center(
-              child: SingleChildScrollView(
-                child: SizedBox(
-                  height: 150,
-                  child: Row(
-                    //mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.end,
-                    children: [
-                      Image.network(
-                        "http://localhost/php-attempt1/product_images/${productController.productList[index].image}",
-                        height: 100,
-                        width: 100,
-                      ),
-
-                      //Image.network("${index + 1}. ${studentController.studentList[index].image}"),
-                      Expanded(
-                        child: Center(
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Text(
-                                productController.productList[index].p_name,
-                                style: TextStyle(
-                                  fontSize: 18,
-                                  color: Colors.purple,
-                                  backgroundColor: textingGray,
-                                ),
-                              ),
-                              //Spacer(),
-                              Text(
-                                productController.productList[index].p_descr,
-                                style: TextStyle(
-                                  fontSize: 16,
-                                  color: textingWhite,
-                                  backgroundColor: textingGray,
-                                ),
-                                maxLines: 3,
-                              ),
-                              //Spacer(),
-                              Text(
-                                productController.productList[index].price,
-                                style: TextStyle(
-                                  fontSize: 18,
-                                  color: Colors.purple,
-                                  backgroundColor: textingGray,
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                      ),
-                      SizedBox(height: 5),
-                      MaterialButton(
-                        onPressed: () {
-                          makeOrder(productController.productList[index].id,
-                              productController.productList[index].price);
-                        },
-                        child: Text("Order"),
-                        color: Colors.purple,
-                      ),
-                    ],
-                  ),
-                ),
+      () => Scaffold(
+         appBar: AppBar(
+          title: Center(
+            child: const CustomizedTextWidget(
+                label: "ST4&&Y",
+                labelsColor: defaultBlack,
+                fontWeight: FontWeight.bold,
+                fontSize: 20),
+          ),
+          backgroundColor: paleGreen,
+          foregroundColor: textingWhite,
+        ),
+        body: Container(
+           decoration: BoxDecoration(
+              image: DecorationImage(
+                image: AssetImage('assets/images/starbackground.jpg'),
+                fit: BoxFit.cover,
               ),
-            );
-          }),
+            ),
+          child: ListView.builder(
+              shrinkWrap: true,
+              itemCount: ((productController.productList.length) + 0),
+              itemBuilder: (context, index) {
+                return Center(
+                  child: SingleChildScrollView(
+                    child: SizedBox(
+                      height: 150,
+                      child: Row(
+                        //mainAxisAlignment: MainAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.end,
+                        children: [
+                          Image.network(
+                            "http://localhost/php-attempt1/product_images/${productController.productList[index].image}",
+                            height: 100,
+                            width: 100,
+                          ),
+          
+                          //Image.network("${index + 1}. ${studentController.studentList[index].image}"),
+                          Expanded(
+                            child: Center(
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Text(
+                                    productController.productList[index].p_name,
+                                    style: TextStyle(
+                                      fontSize: 18,
+                                      color: Colors.purple,
+                                      backgroundColor: textingGray,
+                                    ),
+                                  ),
+                                  //Spacer(),
+                                  Text(
+                                    productController.productList[index].p_descr,
+                                    style: TextStyle(
+                                      fontSize: 16,
+                                      color: textingWhite,
+                                      backgroundColor: textingGray,
+                                    ),
+                                    maxLines: 3,
+                                  ),
+                                  //Spacer(),
+                                  Text(
+                                    productController.productList[index].price,
+                                    style: TextStyle(
+                                      fontSize: 18,
+                                      color: Colors.purple,
+                                      backgroundColor: textingGray,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ),
+                          SizedBox(height: 5),
+                          MaterialButton(
+                            onPressed: () {
+                              makeOrder(productController.productList[index].id,
+                                  productController.productList[index].price);
+                            },
+                            child: Text("Order"),
+                            color: Colors.purple,
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                );
+              }),
+        ),
+      ),
     );
   }
 

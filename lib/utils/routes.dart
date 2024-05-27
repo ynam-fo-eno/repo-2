@@ -14,6 +14,7 @@ import 'package:flutter_application_0/views/pages/orders.dart';
 import 'package:flutter_application_0/views/pages/stars.dart';
 import 'package:flutter_application_0/views/pages/successful_login.dart';
 import 'package:flutter_application_0/views/pages/user_input.dart';
+import 'package:flutter_application_0/views/pages/user_list.dart';
 import 'package:flutter_application_0/views/pages/user_profile.dart';
 import 'package:get/get.dart';
 
@@ -33,6 +34,8 @@ class TimosRoutes {
     GetPage(name: "/user_input"       , page: () =>UserProposals()),
     GetPage(name: "/les_ordres"       , page: () => OrderTracker()),
     GetPage(name: "/user_profile"     , page: () => UserProfile()),
+    GetPage(name: "/user_list"        , page: () => UserList()),
+
     //GetPage(name: "/album_model", page: () => Album()),
   ];
 }

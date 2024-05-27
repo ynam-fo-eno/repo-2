@@ -9,7 +9,7 @@ class CustomizedTextWidget extends StatelessWidget {
   const CustomizedTextWidget({
     super.key,
     required this.label,
-    this.labelsColor = textingGray,
+    this.labelsColor = textingWhite,
     this.fontSize = 20,
     this.fontWeight = FontWeight.normal,
   });

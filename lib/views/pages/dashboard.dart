@@ -31,6 +31,44 @@ class Dashboard extends StatelessWidget {
             child: ListView(
               padding: EdgeInsets.zero,
               children: [
+                loginController.role.value == "1"
+                    ? Container(
+                  height: 150,
+                  decoration: BoxDecoration(
+                    color: primaryColor2,
+                    borderRadius: BorderRadius.only(
+                      //bottomLeft: Radius.circular(50),
+                      bottomRight: Radius.circular(50),
+                    ),
+                  ),
+                  //Below is still part of the body...
+                  child: SingleChildScrollView(
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        SizedBox(
+                          height: 50,
+                        ),
+                        ListTile(
+                          contentPadding: EdgeInsets.symmetric(horizontal: 30),
+                          title: CustomizedTextWidget(
+                            label: "Dashboard",
+                            fontSize: 40,
+                            fontWeight: FontWeight.bold,
+                          ),
+                          subtitle: CustomizedTextWidget(
+                            label: "Hello, ${loginController.fullName.value} (Admin)",
+                            fontSize: 15,
+                            fontWeight: FontWeight.normal,
+                          ),
+                        ),
+                        SizedBox(height: 30),
+                      ],
+                    ),
+                  ),
+                )
+                    :
                 Container(
                   height: 150,
                   decoration: BoxDecoration(
@@ -71,6 +109,10 @@ class Dashboard extends StatelessWidget {
                   color: primaryColor2,
                   child: Container(
                     decoration: BoxDecoration(
+                      image: DecorationImage(
+                        image: AssetImage('assets/images/starbackground.jpg'),
+                        fit: BoxFit.cover,
+                      ),
                       color: textingWhite,
                       borderRadius: BorderRadius.only(
                         topLeft: Radius.circular(200),
@@ -171,6 +213,4 @@ class Dashboard extends StatelessWidget {
           ],
         ),
       );
-
- 
 }

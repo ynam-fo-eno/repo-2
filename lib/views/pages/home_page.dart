@@ -27,64 +27,72 @@ class WelcomePage extends StatelessWidget{
         backgroundColor: paleGreen,
         foregroundColor: textingWhite,
       ),
-      body: SingleChildScrollView(
-        child: Center(
-          child: Padding(
-            padding: EdgeInsets.fromLTRB(20, 50, 20, 40),
-            child: Column(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                mainAxisAlignment: MainAxisAlignment.start,
-                children: [
-                  CustomizedTextWidget(
-                    label: "Constellations & Products",
-                    fontWeight: FontWeight.bold,
-                    fontSize: 30,
-                  ),
-                  SizedBox (
-                    height:30,
-                  ),
-                  Image.asset("assets/images/redstar.jpg",
-                      height: 200, width: 200),
-                  CustomizedTextWidget(
-                    label: "Welcome to ST4&&Y!",
-                    fontWeight: FontWeight.bold,
-                    fontSize: 30,
-                  ),
-                  CustomizedTextWidget(
-                    label: "Enjoy this chance to learn about the stars...",
-                    fontWeight: FontWeight.bold,
-                    fontSize: 15,
-                  ),
-                  CustomizedTextWidget(
-                    label: "Click either icon below to explore constellations or products to view them in real life.",
-                    fontWeight: FontWeight.bold,
-                    fontSize: 15,
-                  ),
-                  Container(
-                    child:GridView.count(
-                      shrinkWrap: true,
-                      physics: NeverScrollableScrollPhysics(),
-                      crossAxisCount: 2,
-                      crossAxisSpacing: 40,
-                      mainAxisSpacing: 30,
-                      children: [
-                        itemsDashboard(
-                          title: "Stars",
-                          iconData: Icons.star_border_outlined,
-                          background: Colors.black,
-                          unAction: () => Get.toNamed("stars"),
-                        ),
-                        itemsDashboard(
-                          title: "Products/Tools",
-                          iconData: Icons.shop_rounded,
-                          background: Colors.blue,
-                          unAction: () => Get.toNamed("/produits"),
-                        ),
-                      ]
-                  ),
-                  ),
-                   
-                ]),
+      body: Container(
+         decoration: BoxDecoration(
+          image: DecorationImage(
+            image: AssetImage('assets/images/starbackground.jpg'),
+            fit: BoxFit.cover,
+          ),
+        ),
+        child: SingleChildScrollView(
+          child: Center(
+            child: Padding(
+              padding: EdgeInsets.fromLTRB(20, 50, 20, 40),
+              child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: [
+                    CustomizedTextWidget(
+                      label: "Constellations & Products",
+                      fontWeight: FontWeight.bold,
+                      fontSize: 30,
+                    ),
+                    SizedBox (
+                      height:30,
+                    ),
+                    Image.asset("assets/images/redstar.jpg",
+                        height: 200, width: 200),
+                    CustomizedTextWidget(
+                      label: "Welcome to ST4&&Y!",
+                      fontWeight: FontWeight.bold,
+                      fontSize: 30,
+                    ),
+                    CustomizedTextWidget(
+                      label: "Enjoy this chance to learn about the stars...",
+                      fontWeight: FontWeight.bold,
+                      fontSize: 15,
+                    ),
+                    CustomizedTextWidget(
+                      label: "Click either icon below to explore constellations or products to view them in real life.",
+                      fontWeight: FontWeight.bold,
+                      fontSize: 15,
+                    ),
+                    Container(
+                      child:GridView.count(
+                        shrinkWrap: true,
+                        physics: NeverScrollableScrollPhysics(),
+                        crossAxisCount: 2,
+                        crossAxisSpacing: 40,
+                        mainAxisSpacing: 30,
+                        children: [
+                          itemsDashboard(
+                            title: "Stars",
+                            iconData: Icons.star_border_outlined,
+                            background: Colors.black,
+                            unAction: () => Get.toNamed("stars"),
+                          ),
+                          itemsDashboard(
+                            title: "Products/Tools",
+                            iconData: Icons.shop_rounded,
+                            background: Colors.blue,
+                            unAction: () => Get.toNamed("/produits"),
+                          ),
+                        ]
+                    ),
+                    ),
+                     
+                  ]),
+            ),
           ),
         ),
       ),

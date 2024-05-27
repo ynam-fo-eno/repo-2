@@ -35,6 +35,8 @@ dependencies:
   http: ^1.2.0
   shared_preferences: ^2.2.2
   fluttertoast: ^8.2.4
+  image_picker: ^1.0.8
+  image_picker_for_web: ^3.0.2
   
   
 
@@ -70,6 +72,8 @@ flutter:
   assets:
     - assets\images\redstar.jpg
     - assets\images\bluestar.jpg
+    - assets\images\starbackground.jpg
+
     #- assets\images\redstar.jpg
 
   #   - images/a_dot_ham.jpeg

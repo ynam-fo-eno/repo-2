@@ -21,50 +21,58 @@ class Orders extends StatelessWidget {
         backgroundColor: paleGreen,
         foregroundColor: textingWhite,
       ),
-      body: SingleChildScrollView(
-        child: Center(
-          child: Padding(
-            padding: EdgeInsets.fromLTRB(20, 50, 20, 40),
-            child: Column(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                mainAxisAlignment: MainAxisAlignment.start,
-                children: [
-                   CustomizedTextWidget(
-                  label: "Orders & User Input",
-                  fontWeight: FontWeight.bold,
-                  fontSize: 30,
-                ),
-                  Image.asset("assets/images/bluestar.jpg",
-                      height: 200, width: 200),
-                 
-                   CustomizedTextWidget(
-                  label:"This is where you can either make orders or give input on info you found here.Click either icon below to do so.",
-                  fontWeight: FontWeight.bold,
-                  fontSize: 15,
-                ),
-                Container(
-                  child: GridView.count(
-                      shrinkWrap: true,
-                      physics: NeverScrollableScrollPhysics(),
-                      crossAxisCount: 2,
-                      crossAxisSpacing: 40,
-                      mainAxisSpacing: 30,
-                      children: [
-                        itemsDashboard(
-                          title: "Your Input",
-                          iconData: Icons.abc,
-                          background: Colors.purple,
-                          unAction: () => Get.toNamed("/user_input"),
-                        ),
-                        itemsDashboard(
-                          title: "Orders",
-                          iconData: Icons.punch_clock_rounded,
-                          background: Colors.purple,
-                          unAction: () => Get.toNamed("/les_ordres"),
-                        ),
-                      ]),
-                ),
-                ],
+      body: Container(
+         decoration: BoxDecoration(
+          image: DecorationImage(
+            image: AssetImage('assets/images/starbackground.jpg'),
+            fit: BoxFit.cover,
+          ),
+        ),
+        child: SingleChildScrollView(
+          child: Center(
+            child: Padding(
+              padding: EdgeInsets.fromLTRB(20, 50, 20, 40),
+              child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: [
+                     CustomizedTextWidget(
+                    label: "Orders & User Input",
+                    fontWeight: FontWeight.bold,
+                    fontSize: 30,
+                  ),
+                    Image.asset("assets/images/bluestar.jpg",
+                        height: 200, width: 200),
+                   
+                     CustomizedTextWidget(
+                    label:"This is where you can either make orders or give input on info you found here.Click either icon below to do so.",
+                    fontWeight: FontWeight.bold,
+                    fontSize: 15,
+                  ),
+                  Container(
+                    child: GridView.count(
+                        shrinkWrap: true,
+                        physics: NeverScrollableScrollPhysics(),
+                        crossAxisCount: 2,
+                        crossAxisSpacing: 40,
+                        mainAxisSpacing: 30,
+                        children: [
+                          itemsDashboard(
+                            title: "Your Input",
+                            iconData: Icons.abc,
+                            background: Colors.purple,
+                            unAction: () => Get.toNamed("/user_input"),
+                          ),
+                          itemsDashboard(
+                            title: "Orders",
+                            iconData: Icons.punch_clock_rounded,
+                            background: Colors.purple,
+                            unAction: () => Get.toNamed("/les_ordres"),
+                          ),
+                        ]),
+                  ),
+                  ],
+              ),
             ),
           ),
         ),

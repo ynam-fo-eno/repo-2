@@ -349,6 +349,48 @@ class MyApp extends StatelessWidget {
       Text("Error");
     }
   }
+
+  Expanded(
+                                  child: ListView.builder(
+                                      shrinkWrap: true,
+                                      itemCount:
+                                          userController.userList.length,
+                                      itemBuilder: (context, index) {
+                                        return Center(
+                                          child: Obx(
+                                            () => Row(
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment.center,
+                                              crossAxisAlignment:
+                                                  CrossAxisAlignment.center,
+                                              children: [
+                                                SizedBox(
+                                                  height: 5,
+                                                ),
+                                                Text(
+                                                  "${index + 1}.${userController.userList[index].name_1}\n ${userController.userList[index].name_2}",
+                                                  style: TextStyle(
+                                                    fontSize: 10,
+                                                    color: textingWhite,
+                                                    backgroundColor:
+                                                        textingGray,
+                                                  ),
+                                                ),
+                                                Text(
+                                                  "${userController.userList[index].email}\n ${userController.userList[index].phone_no}",
+                                                  style: TextStyle(
+                                                    fontSize: 10,
+                                                    color: textingWhite,
+                                                    backgroundColor:
+                                                        textingGray,
+                                                  ),
+                                                ),
+                                              ],
+                                            ),
+                                          ),
+                                        );
+                                      }),
+                                ),
 */
 
 /*
@@ -445,4 +487,28 @@ Image.asset("assets/images/redstar.jpg",
                                   buttonText: "Logout",
                                   unAction: () => Get.toNamed("/login"),
                                 ),
+/*
+Figure out how uploading an image would work...
+for your own better dev, not necessarily for this project:                 
+class pickImage extends StatefulWidget {
+  const pickImage({super.key});
+
+  @override
+  createState() => _pickImage();
+  
+}
+
+class _pickImage extends State<pickImage> {
+  late File imageFile;
+
+  Future<void>_pickImage (ImageSource src) async{
+
+  }
+  
+  @override
+  Widget build(BuildContext context) {
+    return Placeholder();
+  }
+}
+                                */
 */
