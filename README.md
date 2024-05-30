@@ -4,13 +4,10 @@ A new Flutter project.
 
 ## Getting Started
 
-This project is a starting point for a Flutter application.
+This project is a starting point for the  Flutter application known as ST4&&Y.
 
-A few resources to get you started if this is your first Flutter project:
+This is version 1, which was made mainly as a class project and received last serious modifiications of April 15th, 2024.
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+Hoping to add more of course.Good luck to me!
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+
